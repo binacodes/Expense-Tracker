@@ -1,0 +1,325 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #131313;
+    margin: 0;
+    padding: 0;
+    color: #e0e0e0;
+    background: linear-gradient(-45deg, #131313, #1f1f1f, #131313, #0a0a0a);
+    background-size: 400% 400%;
+    animation: flowBackground 20s ease infinite;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 25px;
+    background-color: #1f1f1f;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    border: 1px solid #333;
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #4CAF50;
+}
+
+#mode-toggle {
+    float: right;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 20px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.dark-mode-btn {
+    background-color: transparent;
+    color: #90ee90;
+    border: 2px solid #90ee90;
+}
+
+.light-mode-btn {
+    background-color: #a10f53;
+    color: white;
+    border: 2px solid #a10f53;
+}
+
+#expense-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+    background-color: #2a2a2a;
+    padding: 15px;
+    border-radius: 8px;
+    clear: both;
+}
+
+form input,
+form select,
+form button,
+.filter select {
+    padding: 10px 12px;
+    border-radius: 8px;
+    height: 40px;
+    box-sizing: border-box;
+    border: 1px solid #444;
+    color: #e0e0e0;
+    background-color: #333;
+    flex: 1;
+    min-width: 100px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input:focus,
+form select:focus,
+.filter select:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+form select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23e0e0e0%22%20d%3D%22M287%20292.4L146.2%20151.6%205.4%20292.4%200%20287%20146.2%200%20292.4%20287z%22%2F%3E%3Cpath%20d%3D%22M287%20292.4L146.2%20151.6%205.4%20292.4%200%20287%20146.2%200%20292.4%20287z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 10px;
+}
+
+form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+form button:hover {
+    background-color: #388E3C;
+    transform: translateY(-1px);
+}
+form button:active {
+    background-color: #2E7D32;
+    transform: translateY(0);
+}
+
+.expense-table {
+    overflow-x: auto;
+    border-radius: 8px;
+}
+
+.expense-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    min-width: 600px;
+}
+
+.expense-table th, .expense-table td {
+    padding: 12px;
+    border: 1px solid #333;
+    text-align: left;
+}
+
+.expense-table th {
+    background-color: #4CAF50;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.expense-table tr:nth-child(even) {
+    background-color: #2a2a2a;
+}
+
+.expense-table tr:hover {
+    background-color: #3a3a3a;
+}
+
+.edit-btn {
+    background-color: #03A9F4;
+    color: white;
+}
+.edit-btn:hover {
+    background-color: #0288D1;
+}
+
+.delete-btn {
+    background-color: #F44336;
+    color: white;
+}
+.delete-btn:hover {
+    background-color: #D32F2F;
+}
+
+.expense-table td:last-child {
+    white-space: nowrap;
+}
+
+.total-amount {
+    text-align: right;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    border-top: 2px solid #4CAF50;
+    color: #90ee90;
+    margin-top: 20px;
+}
+
+.filter {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.filter label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.light-mode {
+    background: #f4f4f9;
+    color: #333;
+    animation: none;
+}
+
+.light-mode .container {
+    background-color: #ffffff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+.light-mode h1 {
+    color: #a10f53;
+}
+
+.light-mode #expense-form {
+    background-color: #f9f9f9;
+}
+
+.light-mode form input,
+.light-mode form select,
+.light-mode form button,
+.light-mode .filter select {
+    background-color: #ffffff;
+    color: #333;
+    border-color: #ccc;
+}
+
+.light-mode form select {
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23333%22%20d%3D%22M287%20292.4L146.2%20151.6%205.4%20292.4%200%20287%20146.2%200%20292.4%20287z%22%2F%3E%3Cpath%20d%3D%22M287%20292.4L146.2%20151.6%205.4%20292.4%200%20287%20146.2%200%20292.4%20287z%22%2F%3E%3C%2Fsvg%3E');
+}
+
+.light-mode form button {
+    background-color: #a10f53;
+    border: none;
+}
+
+.light-mode form button:hover {
+    background-color: #8c0c47;
+    transform: translateY(-1px);
+}
+.light-mode form button:active {
+    background-color: #7a0b3f;
+    transform: translateY(0);
+}
+
+.light-mode .expense-table th {
+    background-color: #a10f53;
+    color: white;
+}
+
+.light-mode .expense-table tr:nth-child(even) {
+    background-color: #f1f1f1;
+}
+
+.light-mode .expense-table tr:hover {
+    background-color: #e9e9e9;
+}
+
+.light-mode .expense-table th, 
+.light-mode .expense-table td {
+    border: 1px solid #ddd;
+}
+
+.light-mode .edit-btn {
+    background-color: #a10f53;
+}
+.light-mode .edit-btn:hover {
+    background-color: #8c0c47;
+}
+
+.light-mode .delete-btn {
+    background-color: #a10f53;
+}
+.light-mode .delete-btn:hover {
+    background-color: #8c0c47;
+}
+
+.light-mode .total-amount {
+    border-top: 2px solid #a10f53;
+    color: #a10f53;
+}
+
+@keyframes flowBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        margin: 20px;
+        padding: 15px;
+    }
+    #mode-toggle {
+        float: none;
+        width: 100%;
+    }
+
+    #expense-form {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    form input,
+    form select,
+    form button {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .expense-table td:last-child {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .filter {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .filter label {
+        margin-bottom: 5px;
+    }
+    .filter select {
+        width: 100%;
+    }
+}
